@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/header") %>
+    <title>Post</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .post-container {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        padding: 2rem;
+        margin-top: 3rem;
+      }
+      .post-image {
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+      }
+      .form-container {
+        padding: 1rem;
+      }
+      textarea {
+        min-height: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include ("partials/nav") %>
+    <div class="container post-container">
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-center justify-content-center mb-4">
+          <img src="/img/post1.svg" class="post-image" alt="post" />
+        </div>
+        <div class="col-md-6 form-container">
+          <h2 class="mb-4">發布新書評</h2>
+          <%- include ("partials/message") %>
+          <form action="/profile/post" method="POST">
+            <div class="mb-3">
+              <label for="exampleforTitle" class="form-label">書名：</label>
+              <input
+                name="title"
+                type="text"
+                class="form-control"
+                id="exampleforTitle"
+                placeholder="請輸入本書名稱"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleforbookAuthor" class="form-label">作者：</label>
+              <input
+                name="bookAuthor"
+                type="text"
+                class="form-control"
+                id="exampleforbookAuthor"
+                placeholder="請輸入本書作者"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleforContent" class="form-label">內容：</label>
+              <textarea
+                class="form-control"
+                id="exampleforContent"
+                name="content"
+                placeholder="請摘要介紹書本內容"
+                required
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="exampleforGoodSentences" class="form-label">本書佳句：</label>
+              <textarea
+                class="form-control"
+                id="exampleforGoodSentences"
+                name="goodSentences"
+                placeholder="如果本書有佳句，可以寫在這裡"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-secondary btn-lg w-100">提交書評</button>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

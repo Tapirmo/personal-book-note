@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/header") %>
+    <title>Personal Book Note</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .hero-section {
+        padding: 5rem 0;
+        background-color: #e9ecef;
+      }
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .hero-images {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+      .hero-images img {
+        max-width: 30%;
+        height: auto;
+        margin: 0 1rem;
+      }
+      @media (max-width: 768px) {
+        .hero-images {
+          flex-direction: column;
+          align-items: center;
+        }
+        .hero-images img {
+          max-width: 60%;
+          margin: 1rem 0;
+        }
+      }
+      .btn-start {
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include ("partials/nav") %>
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content text-center">
+          <div class="hero-images">
+            <img src="/img/home1.svg" alt="read_1" />
+            <img src="/img/home2.svg" alt="read_2" />
+            <img src="/img/home3.svg" alt="read_3" />
+          </div>
+          <h1 class="display-4 fw-bold mb-4">Personal Book Note</h1>
+          <p class="lead mb-4">
+            這是一個個人讀書心得記錄網，可以記錄個人所閱讀的書目、佳句、閱讀心得回饋等...。
+            此Side Project使用EJS、MongoDB、Passport.js、Authentication、OAuth(Google Login Setup)所製作。
+          </p>
+          <% if(!user) {%>
+            <a href="/auth/login" class="btn btn-warning btn-lg btn-start">
+            <i class="fas fa-book-open me-2"></i>開始上傳讀書心得吧!
+          </a>
+          <%} %>
+          <% if(user) {%>
+          <a href="/profile" class="btn btn-warning btn-lg btn-start">
+            <i class="fas fa-book-open me-2"></i>開始上傳讀書心得吧!
+          </a>
+          <%} %>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

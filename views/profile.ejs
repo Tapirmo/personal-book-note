@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/header") %>
+    <title>Profile</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .profile-container {
+        margin-top: 2rem;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+      }
+      .profile-image {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+      }
+      .user-info {
+        padding: 1rem;
+      }
+      .user-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 1rem;
+      }
+      .user-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .user-details {
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 1rem;
+      }
+      .user-details li {
+        margin-bottom: 0.5rem;
+      }
+      .user-details li {
+        margin-bottom: 0.75rem;
+      }
+      .user-details strong {
+        margin-right: 0.5rem;
+      }
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: flex-start;
+      }
+      .card {
+        width: calc(33.333% - 1rem);
+        margin: 0;
+        flex-grow: 0;
+      }
+      @media (max-width: 992px) {
+        .card {
+          width: calc(50% - 1rem);
+        }
+      }
+      @media (max-width: 768px) {
+        .card {
+          width: 100%;
+        }
+      }
+      .card-body {
+        padding: 1rem;
+      }
+      .card-title,
+      .card-text {
+        margin-bottom: 0.5rem;
+      }
+      .btn-container {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: auto;
+      }
+      .btn-container .btn,
+      .btn-container form {
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include ("partials/nav") %>
+    <div class="container profile-container">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <img src="/img/profile1.svg" class="profile-image" alt="profile" />
+        </div>
+        <div class="col-md-6">
+          <section class="user-info">
+            <div class="d-flex align-items-center mb-3">
+              <img
+                src="<%= user.thumbnail %>"
+                alt="個人圖片"
+                class="user-avatar"
+              />
+              <h1 class="user-name mb-0"><%= user.name %>的個人檔案</h1>
+            </div>
+            <ul class="user-details">
+              <li><strong>Google ID：</strong><%= user.googleID %></li>
+              <li><strong>註冊時間：</strong><%= user.date %></li>
+              <li><strong>Email：</strong><%= user.email %></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12">
+          <h2>
+            <i class="fa-solid fa-bookmark" style="color: #ffd43b"></i>我的書評:
+          </h2>
+          <div class="card-container">
+            <% for (let i = 0; i < posts.length; i++) { %>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <strong>書名: </strong><%= posts[i].title %>
+                </h5>
+                <p class="card-text">
+                  <strong>作者: </strong><%= posts[i].bookAuthor %>
+                </p>
+                <p class="card-text">
+                  <strong>內容: </strong><%= posts[i].content %>
+                </p>
+                <p class="card-text">
+                  <strong>佳句: </strong><%= posts[i].goodSentences %>
+                </p>
+                <p class="card-text">
+                  <strong>發佈日期:</strong> <%= posts[i].formattedDate %>
+                </p>
+                <div class="btn-container">
+                  <a
+                    href="/profile/<%= posts[i]._id %>/update"
+                    class="btn btn-outline-success"
+                    >修改書評</a
+                  >
+                  <a
+                    href="/profile/<%= posts[i]._id %>/deleteCheck"
+                    class="btn btn-outline-danger"
+                    >刪除書評</a
+                  >
+                </div>
+              </div>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

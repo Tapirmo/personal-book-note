@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/header") %>
+    <title>Login</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .login-container {
+        margin-top: 3rem;
+        max-width: 1200px;
+        max-height: 90vh;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .login-image {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include ("partials/nav") %>
+    <div class="container login-container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="/img/login1.svg" class="login-image" alt="login" />
+        </div>
+        <div class="col-md-6">
+          <h2 class="mb-4">登入</h2>
+          <a class="btn btn-dark btn-lg btn-block mb-3" href="/auth/google">
+            <i class="fa-brands fa-google" style="color: #ffd43b"></i>
+            透過Google登入
+          </a>
+
+          <hr />
+
+          <h5 class="mb-3">已經註冊過一個帳戶？您可以在此登錄：</h5>
+          <form action="/auth/login" method="POST">
+            <div class="form-group mb-3">
+              <label for="exampleInputEmail1">信箱地址：</label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                name="username"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >我們不會與其他人分享你的信箱。</small
+              >
+            </div>
+            <div class="form-group mb-3">
+              <label for="exampleInputPassword1">密碼：</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                name="password"
+              />
+            </div>
+            <button class="btn btn-secondary btn-lg" >會員登入</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

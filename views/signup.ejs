@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ("partials/header") %>
+    <title>Signup</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .signup-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        .signup-image {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <%- include ("partials/nav") %>
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="signup-container">
+                    <div class="row">
+                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                            <img src="/img/signup1.svg" class="signup-image" alt="signup" />
+                        </div>
+                        <div class="col-md-6">
+                            <h2 class="mb-4">註冊新帳戶</h2>
+                            <%- include ("partials/message") %>
+                            <form action="/auth/signup" method="POST">
+                                <div class="mb-3">
+                                    <label for="exampleUsername" class="form-label">姓名：</label>
+                                    <input
+                                        name="name"
+                                        type="text"
+                                        class="form-control"
+                                        id="exampleUsername"
+                                        required
+                                        minlength="3"
+                                        maxlength="255"
+                                        placeholder="請輸入您的全名"
+                                    />
+                                    <small class="form-text text-muted">請輸入您的全名。</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">信箱地址：</label>
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        id="exampleInputEmail1"
+                                        aria-describedby="emailHelp"
+                                        name="email"
+                                        required
+                                        placeholder="請輸入您的電子郵件"
+                                    />
+                                    <small id="emailHelp" class="form-text text-muted">我們不會與其他人分享你的信箱。</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">密碼：</label>
+                                    <input
+                                        type="password"
+                                        class="form-control"
+                                        id="exampleInputPassword1"
+                                        maxlength="1024"
+                                        name="password"
+                                        required
+                                        placeholder="請輸入密碼"
+                                    />
+                                </div>
+                                <button type="submit" class="btn btn-secondary btn-lg w-100">註冊用戶</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
