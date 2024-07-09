@@ -15,8 +15,9 @@
 ![PersonalBookNote1](https://i.ibb.co/wgFBt6F/Personal-Book-Note4.png)
 ![PersonalBookNote2](https://i.ibb.co/drGN2j4/Personal-Book-Note5.png)
 ![PersonalBookNote3](https://i.ibb.co/n3hQdWL/Personal-Book-Note6.png)
-實際操作畫面:(YT影片)
-https://youtu.be/jWN0YUHfxuo
+
+## 操作功能影片
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/jWN0YUHfxuo/0.jpg)](https://www.youtube.com/watch?v=jWN0YUHfxuo)
 
 ## 安裝
 - Node.js 版本建議為: v20.12.0 以上
